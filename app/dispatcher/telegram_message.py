@@ -23,7 +23,7 @@ class TelegramMessageDispatcher(MessageDispatcherBase):
         return f"https://api.telegram.org/bot{self.__token}/sendMessage"
 
     def __init__(self):
-        self.__token = os.getenv("TELEGRAM_TOKEN")
+        self.__token = os.getenv("TELEGRAM_BOT_TOKEN")
         self.__chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
     @override

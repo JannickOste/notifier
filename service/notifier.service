@@ -1,0 +1,16 @@
+[Unit]
+Description=Notification service for customizable events
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/notifier/.env
+WorkingDirectory=/opt/notifier
+ExecStart=/opt/notifier/.venv/bin/python /opt/notifier/app/app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
