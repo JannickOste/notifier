@@ -1,5 +1,5 @@
 
-class MessageDispatcher:
+class MessageDispatcherBase:
     """
     Base class for message dispatchers.
     This class defines the interface that all message dispatcher classes must implement.

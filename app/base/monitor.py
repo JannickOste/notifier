@@ -1,5 +1,6 @@
 from abc import abstractmethod
 
+from app.base.message_dispatcher import MessageDispatcherBase
 
 class MonitorBase:
     """

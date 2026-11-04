@@ -5,10 +5,10 @@ from typing import override
 
 import aiohttp
 
-from base.message_dispatcher import MessageDispatcher
+from base.message_dispatcher import MessageDispatcherBase
 
 
-class TelegramMessageDispatcher(MessageDispatcher):
+class TelegramMessageDispatcher(MessageDispatcherBase):
     __token: str | None = None
     __chat_id: str | None = None
 
@@ -25,9 +25,6 @@ class TelegramMessageDispatcher(MessageDispatcher):
     def __init__(self):
         self.__token = os.getenv("TELEGRAM_TOKEN")
         self.__chat_id = os.getenv("TELEGRAM_CHAT_ID")
-
-        print(f"TOKEN={self.__token}\nID={self.__chat_id}")
-
 
     @override
     async def dispatch(self, message):
