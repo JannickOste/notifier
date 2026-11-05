@@ -93,37 +93,33 @@ class SSHMonitor(JournalMonitorBase):
     async def __on_connection_failed_event(self, eventData: dict):
         """Dispatch a failed SSH authentication event."""
 
-        await self._dispatch_message({
-            "message": (
+        await self._dispatch_message((
                 "🔴 <b>SSH Authentication Failed</b>\n"
                 f"User: <code>{html.escape(eventData.get('user') or 'unknown')}</code>\n"
                 f"Method: <code>{html.escape(eventData.get('method') or 'unknown')}</code>\n"
                 f"Source: <code>{html.escape(eventData.get('ip') or 'unknown')}:"
                 f"{html.escape(eventData.get('port') or 'unknown')}</code>"
             )
-        })
+        )
 
     async def __on_connection_success_event(self, eventData: dict):
         """Dispatch a successful SSH authentication event."""
 
-        await self._dispatch_message({
-            "message": (
+        await self._dispatch_message((
                 "🟢 <b>SSH Connection Established</b>\n"
                 f"User: <code>{html.escape(eventData.get('user') or 'unknown')}</code>\n"
                 f"Method: <code>{html.escape(eventData.get('method') or 'unknown')}</code>\n"
                 f"Source: <code>{html.escape(eventData.get('ip') or 'unknown')}:"
                 f"{html.escape(eventData.get('port') or 'unknown')}</code>"
             )
-        })
+        )
 
     async def __on_disconnect_event(self, eventData: dict):
         """Dispatch a disconnected SSH session event."""
 
-        await self._dispatch_message({
-            "message": (
-                "🟠 <b>SSH Session Disconnected</b>\n"
+        await self._dispatch_message(("🟠 <b>SSH Session Disconnected</b>\n"
                 f"User: <code>{html.escape(eventData.get('user') or 'unknown')}</code>\n"
                 f"Source: <code>{html.escape(eventData.get('ip') or 'unknown')}:"
                 f"{html.escape(eventData.get('port') or 'unknown')}</code>"
             )
-        })
+        )

@@ -5,12 +5,14 @@ import logging
 
 from base.message_dispatcher import MessageDispatcherBase
 from dispatcher.telegram_message import TelegramMessageDispatcher
+from dispatcher.discord_message import DiscordMessageDispatcher
 
 from base.monitor import MonitorBase
 from monitors.ssh import SSHMonitor
 
 message_dispatcher_modules: list[MessageDispatcherBase] = [
-    TelegramMessageDispatcher
+    TelegramMessageDispatcher,
+    DiscordMessageDispatcher
 ]
 
 monitoring_modules: list[MonitorBase] = [
