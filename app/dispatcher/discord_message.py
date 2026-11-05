@@ -40,7 +40,7 @@ class DiscordMessageDispatcher(MessageDispatcherBase):
     @override
     async def dispatch(self, message):
         payload = {
-            "content": DiscordMessageDispatcher.html_to_discord(message),
+            "content": html_to_discord(message),
         }
 
         headers = {
